@@ -48,7 +48,7 @@ const FeaturedBadge = styled.div`
   z-index: 10;
 `
 
-const RiskIndicator = styled.div<{ level: RiskLevel }>`
+const RiskIndicator = styled.div<{ $level: RiskLevel }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -66,29 +66,29 @@ const RiskIndicator = styled.div<{ level: RiskLevel }>`
     background-color: var(--muted);
   }
   
-  ${({ level }) => {
-    if (level === RiskLevel.VERY_LOW) {
+  ${({ $level }) => {
+    if ($level === RiskLevel.VERY_LOW) {
       return `
         .dot:nth-child(1) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.LOW) {
+    } else if ($level === RiskLevel.LOW) {
       return `
         .dot:nth-child(1), .dot:nth-child(2) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.MEDIUM) {
+    } else if ($level === RiskLevel.MEDIUM) {
       return `
         .dot:nth-child(1), .dot:nth-child(2), .dot:nth-child(3) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.HIGH) {
+    } else if ($level === RiskLevel.HIGH) {
       return `
         .dot:nth-child(1), .dot:nth-child(2), .dot:nth-child(3), .dot:nth-child(4) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.VERY_HIGH) {
+    } else if ($level === RiskLevel.VERY_HIGH) {
       return `
         .dot:nth-child(1), .dot:nth-child(2), .dot:nth-child(3), .dot:nth-child(4), .dot:nth-child(5) { background-color: var(--primary); }
       `
     }
-  }}
+}}
 `
 
 export default function ProductCard({ product }: ProductCardProps) {
@@ -137,7 +137,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.riskLevel && (
             <div className="flex items-center justify-between text-sm">
               <span className="text-muted-foreground">Nivel de riesgo:</span>
-              <RiskIndicator level={product.riskLevel}>
+              <RiskIndicator $level={product.riskLevel}>
                 <span className="text-xs font-medium">{product.riskLevel}</span>
                 <div className="risk-dots">
                   <div className="dot"></div>

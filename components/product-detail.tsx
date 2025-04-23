@@ -88,7 +88,7 @@ const BenefitItem = styled.li`
   }
 `
 
-const RiskIndicator = styled.div<{ level: RiskLevel }>`
+const RiskIndicator = styled.div<{ $level: RiskLevel }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -105,24 +105,24 @@ const RiskIndicator = styled.div<{ level: RiskLevel }>`
     background-color: var(--muted);
   }
   
-  ${({ level }) => {
-    if (level === RiskLevel.VERY_LOW) {
+  ${({ $level }) => {
+    if ($level === RiskLevel.VERY_LOW) {
       return `
         .dot:nth-child(1) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.LOW) {
+    } else if ($level === RiskLevel.LOW) {
       return `
         .dot:nth-child(1), .dot:nth-child(2) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.MEDIUM) {
+    } else if ($level === RiskLevel.MEDIUM) {
       return `
         .dot:nth-child(1), .dot:nth-child(2), .dot:nth-child(3) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.HIGH) {
+    } else if ($level === RiskLevel.HIGH) {
       return `
         .dot:nth-child(1), .dot:nth-child(2), .dot:nth-child(3), .dot:nth-child(4) { background-color: var(--primary); }
       `
-    } else if (level === RiskLevel.VERY_HIGH) {
+    } else if ($level === RiskLevel.VERY_HIGH) {
       return `
         .dot:nth-child(1), .dot:nth-child(2), .dot:nth-child(3), .dot:nth-child(4), .dot:nth-child(5) { background-color: var(--primary); }
       `
@@ -192,7 +192,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             {product.riskLevel && (
               <div className="bg-muted/50 p-4 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-1">Nivel de riesgo</div>
-                <RiskIndicator level={product.riskLevel} className="mt-2">
+                <RiskIndicator $level={product.riskLevel} className="mt-2">
                   <span className="font-medium">{product.riskLevel}</span>
                   <div className="risk-dots">
                     <div className="dot"></div>
