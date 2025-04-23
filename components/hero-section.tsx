@@ -5,14 +5,16 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 const HeroContainer = styled.section`
-  background: linear-gradient(135deg, var(--primary-50, #f0f9ff) 0%, var(--primary-100, #e0f2fe) 100%);
-  
-  @media (prefers-color-scheme: dark) {
-    background: linear-gradient(135deg, var(--primary-950, #0c4a6e) 0%, var(--primary-900, #075985) 100%);
-  }
-  
+  /* Light mode: fondo blanco usando tu variable CSS global */
+  background: hsl(var(--background));
+
+  /* Dark mode: degradado azul */
   .dark & {
-    background: linear-gradient(135deg, var(--primary-950, #0c4a6e) 0%, var(--primary-900, #075985) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--primary-950, #0c4a6e) 0%,
+      var(--primary-900, #075985) 100%
+    );
   }
 `
 
@@ -22,12 +24,16 @@ const AnimatedGradient = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: radial-gradient(circle at 50% 50%, var(--primary-300, #7dd3fc) 0%, transparent 50%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--primary-300, #7dd3fc) 0%,
+    transparent 50%
+  );
   opacity: 0.3;
   filter: blur(60px);
   z-index: 0;
   animation: pulse 8s ease-in-out infinite alternate;
-  
+
   @keyframes pulse {
     0% {
       opacity: 0.2;
@@ -38,9 +44,14 @@ const AnimatedGradient = styled.div`
       transform: scale(1.2);
     }
   }
-  
+
+  /* Dark mode: un radial más oscuro */
   .dark & {
-    background: radial-gradient(circle at 50% 50%, var(--primary-600, #0284c7) 0%, transparent 50%);
+    background: radial-gradient(
+      circle at 50% 50%,
+      var(--primary-600, #0284c7) 0%,
+      transparent 50%
+    );
   }
 `
 
@@ -51,7 +62,8 @@ export default function HeroSection() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center gap-4 text-center">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-            Soluciones financieras para el <span className="text-primary">futuro digital</span>
+            Soluciones financieras para el{" "}
+            <span className="text-primary">futuro digital</span>
           </h1>
           <p className="max-w-[700px] text-muted-foreground md:text-xl">
             Descubre nuestros productos financieros diseñados para ayudarte a alcanzar tus metas con seguridad,
