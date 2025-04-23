@@ -1,16 +1,21 @@
+// app/product/[id]/page.tsx
+
 import { getProductById } from "@/lib/products"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ProductDetail from "@/components/product-detail"
 import { notFound } from "next/navigation"
-import type { Metadata, ResolvingMetadata } from "next"
+import type { Metadata } from "next"
 
 type Props = {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const product = getProductById(params.id)
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
+  const { id } = await params
+  const product = getProductById(id)
 
   if (!product) {
     return {
@@ -24,8 +29,9 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   }
 }
 
-export default function ProductPage({ params }: Props) {
-  const product = getProductById(params.id)
+export default async function ProductPage({ params }: Props) {
+  const { id } = await params
+  const product = getProductById(id)
 
   if (!product) {
     notFound()

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { styled } from "styled-components"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -70,10 +71,14 @@ export default function HeroSection() {
             transparencia y tecnología de vanguardia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
-            <Button size="lg" className="gap-2">
-              Explorar productos
-              <ArrowRight className="h-4 w-4" />
+            {/* Botón redirigiendo a /productos */}
+            <Button asChild size="lg" className="gap-2">
+              <Link href="/productos">
+                Explorar productos
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
+
             <Button size="lg" variant="outline">
               Conocer más
             </Button>
