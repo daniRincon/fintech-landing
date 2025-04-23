@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="container px-4 py-10 md:py-16">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           <div className="flex flex-col gap-4 md:col-span-2">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2" >
               <Logo className="h-8 w-8" />
               <span className="font-bold text-xl">FinanceHub</span>
             </Link>
@@ -142,5 +142,5 @@ export default function Footer() {
         </div>
       </div>
     </FooterContainer>
-  )
+  );
 }

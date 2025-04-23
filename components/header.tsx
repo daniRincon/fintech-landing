@@ -42,7 +42,7 @@ export default function Header() {
     <NavContainer className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" >
             <Logo className="h-8 w-8" />
             <span className="font-bold text-xl hidden sm:inline-block">FinanceHub</span>
           </Link>
@@ -50,16 +50,16 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
-          <Link href="/" passHref legacyBehavior>
+          <Link href="/" passHref >
             <NavLink className="text-sm font-medium transition-colors hover:text-primary">Inicio</NavLink>
           </Link>
-          <Link href="/#productos" passHref legacyBehavior>
+          <Link href="/#productos" passHref >
             <NavLink className="text-sm font-medium transition-colors hover:text-primary">Productos</NavLink>
           </Link>
-          <Link href="/#nosotros" passHref legacyBehavior>
+          <Link href="/#nosotros" passHref >
             <NavLink className="text-sm font-medium transition-colors hover:text-primary">Nosotros</NavLink>
           </Link>
-          <Link href="/#contacto" passHref legacyBehavior>
+          <Link href="/#contacto" passHref >
             <NavLink className="text-sm font-medium transition-colors hover:text-primary">Contacto</NavLink>
           </Link>
         </div>
@@ -80,7 +80,6 @@ export default function Header() {
           </Button>
         </div>
       </div>
-
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden container py-4 pb-6 border-t">
@@ -118,5 +117,5 @@ export default function Header() {
         </div>
       )}
     </NavContainer>
-  )
+  );
 }
